@@ -3,6 +3,9 @@ const express = require('express');
 // call express method
 var app = express();
 
+// middleware function here
+app.use(express.static(__dirname + '/public'));
+
 // register handler
 app.get('/', (req, res) => {
     // res.send('Hello Express!');
@@ -27,6 +30,8 @@ app.get('/bad', (req, res) => {
 })
 
 // bind application to the port 
-app.listen(8080);
+app.listen(8080, () => {
+    console.log('Server is up on port 8080');
+});
 
 
